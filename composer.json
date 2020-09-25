@@ -1,9 +1,13 @@
 {
   "name": "frdl/handsdown",
   "description": "Fork of rosell-dk/handsdown",
-  "type": "project",
+  "type": "frdl-public",
   "license": "MIT",
   "keywords": ["cms", "flat"],
+  "repositories": [{
+    "type": "composer",
+    "url": "https://packages.frdl.de"
+  }],  
   "scripts": {
     "ci": [
       "@build",
@@ -47,6 +51,7 @@
   ],
   "require": {
       "php": "^5.6 | ^7.0",
+      "frdl/frdlweb-composer-installers" : "*",
       "rosell-dk/image-mime-type-guesser": "^0.3",
       "erusev/parsedown": "^1.7",
       "mustangostang/spyc": "^0.6"
