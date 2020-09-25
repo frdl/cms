@@ -1,6 +1,6 @@
 {
-  "name": "rosell-dk/handsdown",
-  "description": "Hands down - the notoriously unnoticed CMS",
+  "name": "frdl/handsdown",
+  "description": "Fork of rosell-dk/handsdown",
   "type": "project",
   "license": "MIT",
   "keywords": ["cms", "flat"],
@@ -37,7 +37,12 @@
     {
       "name": "Bjørn Rosell",
       "homepage": "https://www.bitwise-it.dk/contact",
-      "role": "Project Author"
+      "role": "Original Project Author"
+    },   
+    {
+      "name": "Till Wehowski",
+      "homepage": "https://webfan.de/contact/",
+      "role": "Developer"
     }
   ],
   "require": {
