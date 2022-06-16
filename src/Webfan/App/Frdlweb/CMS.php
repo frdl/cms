@@ -116,7 +116,7 @@ class CMS
         return $self->options['content-dir'];
 
       case 'theme-url': 
-        return $self->options['content-dir'] . 'themes/' . $self->options['frontmatter']['theme'] . '/';
+        return $self->options['themes-dir'] .$self->options['frontmatter']['theme'] . '/';
     }
     if (isset( $self->option['frontmatter'][$tag])) {
       return  $self->option['frontmatter'][$tag];
