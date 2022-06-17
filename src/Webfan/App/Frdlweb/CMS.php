@@ -26,6 +26,7 @@ class CMS
 	
 	
   public function __invoke($type, $slug, $content_variable = '') {
+	  $includePhp = false;
   $filename_without_extension = trim( $this->options['content-dir'], '//\\') . '/' . $type . '/' . $slug;
   if (is_file($filename_without_extension . '.md')) {
     $filename = $filename_without_extension . '.md';
@@ -41,6 +42,7 @@ class CMS
   }
   else if (true===$this->allowPhp && is_file($filename_without_extension . '.php')) {
     $filename = $filename_without_extension . '.php';
+    $includePhp = true;	  
   }
   else {
     //echo 'not found: ' . $filename_without_extension . '<br><br>';
@@ -50,7 +52,9 @@ class CMS
  // ob_start();
  // include $filename;
  // $content = ob_get_clean();
-        $content = file_get_contents($filename);
+        $content = true!==$includePhp 
+		      ? file_get_contents($filename)
+		      : require $filename;
 	  
 	  
   $this->parseFrontmatter($content);
