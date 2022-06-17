@@ -2,7 +2,8 @@
 This is a simple Content-Management-System, originally forked from/inspired by [Handsdown CMS](https://github.com/rosell-dk/handsdown).
 
 ## WTF - Why the fork?
-The main goals was to *keep it simple*, thanky to [rosell-dk](https://github.com/rosell-dk).
+The main goals was to *keep it simple*, thanks to [rosell-dk](https://github.com/rosell-dk). 
+I further added..
 
 ### Changes and goals
 * rewritten to OOP, CMS class [x]
