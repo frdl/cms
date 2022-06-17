@@ -4,9 +4,6 @@ namespace Webfan\App\Frdlweb;
 use League\CommonMark\ConverterInterface;
 use League\CommonMark\CommonMarkConverter;
 use Spyc;
-//error_reporting(E_ALL);
-//ini_set("display_errors", 1);
-
 
 class CMS
 {
@@ -46,10 +43,10 @@ class CMS
   }
   else {
     //echo 'not found: ' . $filename_without_extension . '<br><br>';
-    return FALSE;
+    return false;
   }
 
-	  if(true === $includePhp){
+	  if(true===$this->allowPhp && true === $includePhp){
                 ob_start();
 		 require $filename;
 		$content = ob_get_clean();		  
@@ -63,12 +60,6 @@ class CMS
   $content = $this->mustache_substitute($content, $content_variable);
 
   if ($type != 'themes') {
-
-
-    // Parse markdown
-  //  global $Parsedown;
-  //  $content = $Parsedown->text($content);
-	  //global $converter;
       $content = $this->converter->convert($content);
 
     // Wrap it in template, if there is one
@@ -92,9 +83,6 @@ class CMS
 	protected function mustache_substitute($text, $content_variable) {
        $self = &$this;
   return preg_replace_callback('/{{((?:[^}]|}[^}])+)}}/', function($matches) use ($content_variable, &$self) {
-   // global $Parsedown;
-   // global $frontmatter_options;
-
     $tag = trim($matches[1]);
 
     switch ($tag) {
@@ -133,7 +121,7 @@ class CMS
     }*/
 
     $block_html = $self('blocks', $tag, $content_variable);
-    if ($block_html !== FALSE) {
+    if ($block_html !== false) {
       return $block_html;
     }
 
@@ -144,7 +132,7 @@ class CMS
 	
 	
 	
-	protected function parseFrontmatter(&$text_md) { 
+protected function parseFrontmatter(&$text_md) { 
 
   if (strncmp($text_md, "+++", 3) === 0) {
     // TOML format, but only partly supported
