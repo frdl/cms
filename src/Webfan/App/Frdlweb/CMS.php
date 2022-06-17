@@ -212,7 +212,7 @@ class CMS
 				'allow_unsafe_links' => false,			
 			],
 			
-			'frontmatter' =>  Spyc::YAMLLoad($options['dir'] . \DIRECTORY_SEPARATOR.$options['configfile'])
+			'frontmatter' =>  $frontmatter,
 		];
 		$res = array_merge($o, $options);		
 		$res['frontmatter']['theme'] = str_replace('//\\', '__INVLID__', $res['frontmatter']['theme'] );
