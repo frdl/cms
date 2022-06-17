@@ -1,6 +1,7 @@
 <?php
 namespace Webfan\App\Frdlweb;
 
+use League\CommonMark\ConverterInterface;
 use League\CommonMark\CommonMarkConverter;
 use Spyc;
 //error_reporting(E_ALL);
@@ -13,17 +14,13 @@ class CMS
 	protected $options;
 	protected $converter;	
 	
-	public function __construct(array $options = null,  $allowPhp = false){
-        $this->allowPhp=$allowPhp;
-		$this->options = $this->getDefaultOptions($options);
-		
-
-		$this->converter = new CommonMarkConverter([    
-			'html_input' => 'strip',    
-			'allow_unsafe_links' => false,
-		]);		
-		
-		 
+	
+	public function __construct(array $options = null,  $allowPhp = false, ConverterInterface $converter = null){       
+		$this->allowPhp=$allowPhp;
+		$this->options = $this->getDefaultOptions($options);		
+		$this->converter =(null !== $converter)
+			         ? $converter
+			         : new CommonMarkConverter( $this->options['parser'] );				 
 	}
 
 	
@@ -142,8 +139,7 @@ class CMS
 	
 	
 	
-	protected function parseFrontmatter(&$text_md) {
-     //  $frontmatter_options = $this->option['frontmatter'];
+	protected function parseFrontmatter(&$text_md) { 
 
   if (strncmp($text_md, "+++", 3) === 0) {
     // TOML format, but only partly supported
@@ -212,7 +208,9 @@ class CMS
 				'allow_unsafe_links' => false,			
 			],
 			
-			'frontmatter' =>  $frontmatter,
+			'frontmatter' => array_merge([
+						'theme' =>'basic-with-responsive-menu'					
+					], $frontmatter),
 		];
 		$res = array_merge($o, $options);		
 		$res['frontmatter']['theme'] = str_replace('//\\', '__INVLID__', $res['frontmatter']['theme'] );
