@@ -11,8 +11,8 @@ I further added..
 * make it more configurable [x]
 * make it modular extensible [ ]
 * admin and config panels [ ]
-* disable the execution of *php* files by default, make it optionally be enabled [x]
+* disable the execution of *php* files by default, make it optionally be enabled [x][ ]
 * recognize *htm*, *html* files [x]
 * changed *include* to *file_get_contents* to prevent the execution of bad code, parse the string instead [x]
-* multisite/multi-domain hosting, many instances multitenancy system
+* multisite/multi-domain hosting, many instances multitenancy system [ ]
 * .md, WYSIWYG- , Homepage-, Theme-, ... Editors. [ ]
