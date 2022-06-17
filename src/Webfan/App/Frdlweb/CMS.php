@@ -118,8 +118,8 @@ class CMS
       case 'theme-url': 
         return $self->options['themes-dir'] .$self->options['frontmatter']['theme'] . '/';
     }
-    if (isset( $self->option['frontmatter'][$tag])) {
-      return  $self->option['frontmatter'][$tag];
+    if (isset( $self->options['frontmatter'][$tag])) {
+      return  $self->options['frontmatter'][$tag];
     }
 
 /*
@@ -161,7 +161,7 @@ class CMS
       }
       // String assignments
       if (preg_match('/([\w-]+)\\s*=\\s*([\'"])(.*)\\2/', $line, $matches)) {
-         $this->option['frontmatter'][$group_prefix . $matches[1]] = $matches[3];
+         $this->options['frontmatter'][$group_prefix . $matches[1]] = $matches[3];
       }
     }
   }
@@ -173,7 +173,7 @@ class CMS
     $array = Spyc::YAMLLoadString($frontmatter);
 
     foreach ($array as $index => $item) {
-       $this->option['frontmatter'][$index] = $item;
+       $this->options['frontmatter'][$index] = $item;
     }
   }
 
