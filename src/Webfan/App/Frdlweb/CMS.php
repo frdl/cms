@@ -49,13 +49,14 @@ class CMS
     return FALSE;
   }
 
- // ob_start();
- // include $filename;
- // $content = ob_get_clean();
-        $content = true!==$includePhp 
-		      ? file_get_contents($filename)
-		      : require $filename;
-	  
+	  if(true === $includePhp){
+                ob_start();
+		 require $filename;
+		$content = ob_get_clean();		  
+	  }else{		
+	      $content = file_get_contents($filename);
+	  }
+ 
 	  
   $this->parseFrontmatter($content);
 
