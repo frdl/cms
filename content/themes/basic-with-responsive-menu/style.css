@@ -185,5 +185,13 @@ body {
 
 }
 
-
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #66aa88;
+  color: white;
+  text-align: center;
+}
 
