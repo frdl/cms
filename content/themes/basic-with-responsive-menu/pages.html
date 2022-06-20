@@ -6,24 +6,32 @@
   <meta name="description" content="{{ metatags.description }}">
   <meta name="keywords" content="{{ metatags.keywords }}">
   <meta name="author" content="{{ author }}"/>
+  <title>{{ title }}</title>
   <link rel="shortcut icon" href="{{ root-url }}favicon.ico" type="image/x-icon">
   <link rel="icon" href="{{ root-url }}favicon.ico" type="image/x-icon">
-  <meta name="generator" content="handsdown" />
-
-  <title>{{ title }}</title>
+  <meta name="generator" content="Webfan Hub" />
   <link rel="stylesheet" href="{{ theme-url }}/style.css" type="text/css" media="all" />
+<script type="text/javascript">(async(q,v,w,d,h,wcsb)=>{var s=d.createElement('script');
+s.setAttribute('src', 'https://cdn.frdl.de'
+   +'/!bundle/run/' +h+'-'+v+'/@webfan3/frdlweb/webfan-website.js'
+);
+s.setAttribute('data-webfan-config-query', q);													  
+s.setAttribute('data-frdl-website-origin', w.origin);s.async=true;s.onload=()=>{wcsb();};d.head.append(s);	 
+})(
+   'DEBUG.enabled=false',
+   'abcdef1234567890',
+   window, 
+   document,  
+   (new Date()).getYear() + '-' +  (new Date()).getMonth()+ '-' +  (new Date()).getDay(),
+   ()=>{ 
+		
+});</script>	
 </head>
 <body class="{{ template-name }}">
   {{ nav }}
   {{ main }}
-
-  <?php 
-  // You get to the page options like this:
-  // $page_options['metatags.keywords'];
-  // Use it when you need to do some logic based on page options.
-  // When no logic is needed, use the placeholders instead (the mustache-syntax) - it is more readable
- ?>
-
-
+ <footer class="footer">	
+  {{ footer }}
+ </footer>
 </body>
 </html>
