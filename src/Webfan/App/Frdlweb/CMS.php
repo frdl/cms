@@ -103,10 +103,11 @@ class CMS
         return $self->options['frontmatter']['theme'];
 
       case 'root-url': 
-        return $self->options['content-dir'];
-
+       // return 'https://'.$_SERVER['HTTP_HOST'].$self->options['content-dir'];
+            return $self->options['content-dir'];
       case 'theme-url': 
-        return $self->options['themes-dir'] .$self->options['frontmatter']['theme'] . '/';
+        //return 'https://'.$_SERVER['HTTP_HOST'].$self->options['themes-dir'] .$self->options['frontmatter']['theme'];
+			return $self->options['themes-dir'] .$self->options['frontmatter']['theme'];
     }
     if (isset( $self->options['frontmatter'][$tag])) {
       return  $self->options['frontmatter'][$tag];
@@ -134,7 +135,7 @@ class CMS
 	
 protected function parseFrontmatter(&$text_md) { 
 
-  $text_md = str_replace('+++', '---', $text_md);
+	$text_md = str_replace('+++', '---', $text_md);
 	
   if (strncmp($text_md, "---", 3) === 0) {
     // TOML format, but only partly supported
