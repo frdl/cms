@@ -1,9 +1,8 @@
+/*
 body {
-  background-color: #66aa88;
+  background-color: #00ace6;
 }
-
-
-/* Responsive navigation (pure CSS, no javascript) */
+Responsive navigation (pure CSS, no javascript) */
 /* ---------- */
 #drop {
   display: none;
@@ -67,6 +66,7 @@ body {
 
 #menu {
   height: 50px;
+  background-color: #00ace6;
 }
 #menu_btn {
   display: none;
@@ -190,7 +190,7 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #66aa88;
+  background-color: #00ace6;
   color: white;
   text-align: center;
 }
