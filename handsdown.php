@@ -1,8 +1,6 @@
 <?php
 namespace Webfan\App\Frdlweb;
-
-use League\CommonMark\CommonMarkConverter;
-use Spyc;
+ 
 //error_reporting(E_ALL);
 //ini_set("display_errors", 1);
   
@@ -16,10 +14,9 @@ if ($page == '') {
 if (is_dir('pages/' . $page)) {
   $page .= '/index';
 }
-
-//$result = find_and_parse_md_or_php_file('pages', $page, 'hmmm');
+ 
 $cms = new CMS();
-$result = $cms('pages', $page, 'hmmm');
+$result = $cms('pages', $page, '');
 if ($result !== FALSE) {
   echo $result;
 }
