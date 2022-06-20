@@ -6,7 +6,9 @@ namespace Webfan\App\Frdlweb;
   
 
 //$page = $_GET['page'];
-$page = ltrim($_SERVER['REQUEST_URI'], '/ ');
+$u = explode('?', $_SERVER['REQUEST_URI']);
+
+$page = ltrim(array_shift($u), '/ ');
 if ($page == '') {
   $page = 'index';
 }
