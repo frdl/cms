@@ -134,9 +134,11 @@ class CMS
 	
 protected function parseFrontmatter(&$text_md) { 
 
-  if (strncmp($text_md, "+++", 3) === 0) {
+  $text_md = str_replace('+++', '---', $text_md);
+	
+  if (strncmp($text_md, "---", 3) === 0) {
     // TOML format, but only partly supported
-    $endpos = strpos($text_md, '+++', 3);
+    $endpos = strpos($text_md, '---', 3);
     $frontmatter = trim(substr($text_md, 3, $endpos - 3));
     $text_md = substr($text_md, $endpos + 3);
 
