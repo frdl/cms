@@ -210,7 +210,7 @@ protected function parseFrontmatter(&$text_md) {
 		];
 		$res = array_merge($o, $options);		
 		$res['frontmatter']['theme'] = str_replace('//\\', '__INVLID__', $res['frontmatter']['theme'] );
-		$res['content-dir'] = str_replace('.', '__INVLID__', $res['content-dir']);
+		//$res['content-dir'] = str_replace('.', '__INVLID__', $res['content-dir']);
 		return $res;
 	}
 
