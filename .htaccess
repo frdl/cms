@@ -13,6 +13,15 @@ RewriteEngine On
 # RewriteRule ^(codeblocks)$ template-prettify.php?page=$1 [NC,L,QSA]
 
 
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+ 
+# FallbackResource /index.php
+FallbackResource index.php
+
+ErrorDocument 403 index.php
+ErrorDocument 404 index.php
+ErrorDocument 500 index.php
 
 # Pass all requests not referring directly to files in the filesystem to the engine
 RewriteCond %{REQUEST_FILENAME} !-f
